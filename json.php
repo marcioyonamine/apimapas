@@ -23,7 +23,7 @@ $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
 
 
 $data = array(
-	"@select" => "id, name, longDescription, occurrences", 
+	"@select" => "id, name, longDescription, terms, project, occurrences", 
 	"@order" => "id ASC", 
 	"owner" => "EQ(@Agent:608)"
 	);

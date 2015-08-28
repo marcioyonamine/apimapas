@@ -58,7 +58,7 @@ $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
 
 
 $data = array(
-	'@select' => 'id, name, occurrences', 
+	'@select' => 'id, name, terms, occurrences', 
 	"@order" => "id ASC", 
 	"owner" => "EQ(@Agent:608)"
 	);
@@ -93,6 +93,7 @@ $evhoj[$j]['horario'] = $ccsp[$i]['occurrences'][$k]['rule']['startsAt'];
 $evhoj[$j]['sala'] = $ccsp[$i]['occurrences'][$k]['space']['name'];
 $evhoj[$j]['codSala'] = $ccsp[$i]['occurrences'][$k]['space']['id'];
 $evhoj[$j]['projeto'] = 0;
+$evhoj[$j]['linguagem'] = $ccsp[$i]['terms']['linguagem'][0];
 $j++;			
 				}
 
@@ -161,7 +162,7 @@ for($j = 0; $j < count($evhoj); $j++){
  ?>
  
 			<tr>
-			<td><div class="programas"> <div class="genero"> <?php echo "ver codigo"; ?></div>
+			<td><div class="programas"> <div class="genero"> <?php echo $evhoj[$j]['linguagem']; ?></div>
 	   		 <div class="titulo"> <?php echo $evhoj[$j]['nome']; ?></div></div></td>
 			<td><div class="LOCAL"><div class="sala"><?php  ?></div><?php echo substr($evhoj[$j]['sala'], 7);; ?><div class="lotacao"><?php echo "" ?> lugares</div></div> </td>
 			<td><div class ="INGRESSOS"><div class="sala">R$</div><div class="ingresso"> <?php echo $evhoj[$j]['valor']; ?></div></div></td>
