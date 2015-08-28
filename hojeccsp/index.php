@@ -41,7 +41,7 @@ $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
 
 
 $data = array(
-	'@select' => 'id, name, occurrences', 
+	'@select' => 'id, name, longDescription, occurrences', 
 	"@order" => "id ASC", 
 	"owner" => "EQ(@Agent:608)"
 	);
@@ -112,9 +112,8 @@ for($i = 0; $i < sizeof($evento); $i++){
 					//}
 				echo " - <i>".$ccsp[$i]['occurrences'][$k]['space']['name']."</i><br></h3></div><div class='conteudo".$i."' style='display:none; '>
 				
-				<p>".$ccsp[$i]['occurrences'][$k]['event']['shortDescription']."</p>
-				<p>".$ccsp[$i]['occurrences'][$k]['rule']['description']."</p>
-				<p>".$ccsp[$i]['occurrences'][$k]['rule']['price']."</p>
+				<p>".nl2br($ccsp[$i]['longDescription'])."</p>
+				
 				</div><br />";
 					
 				}
