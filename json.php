@@ -20,7 +20,13 @@ function converterObjParaArray($data) { //função que transforma objeto vindo d
 }
 
 $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
-$data = array("@select" => "id, name, occurrences", "@order" => "name ASC", "owner" => "EQ(@Agent:608)");
+
+
+$data = array(
+	"@select" => "id, name, occurrences", 
+	"@order" => "id ASC", 
+	"owner" => "EQ(@Agent:608)"
+	);
 
 $get_addr = $url.'?'.http_build_query($data);
 $ch = curl_init($get_addr);
@@ -41,19 +47,21 @@ echo "</pre>";
 
 // Retorna os eventos de hoje (converter a string date para date e fazer a comparação de datas)
 $hoje = date('Y-m-d');
+$semana = date('w');
 echo "Hoje é $hoje<br>";
 
 for($i = 0; $i < sizeof($evento); $i++){
-	for($k = 0; $k < sizeof($ccsp[$i]['occurrences']); $k++){
-		if($ccsp[0]['occurrences'][0]['rule']['until'] != ""){
-			if($ccsp[0]['occurrences'][0]['rule']['startsOn'] >= $hoje AND $ccsp[0]['occurrences'][0]['rule']['until'] <= $hoje ){
-				echo $ccsp[$i]['name']."<br>";
-			}else if ($ccsp[0]['occurrences'][0]['rule']['startsOn'] == $hoje){
-			}
+	for($k = 0; $k < count($ccsp[$i]['occurrences']); $k++){
+		if(
+		($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] == $hoje) OR //o dia exato de hoje
+		(($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] < $hoje) AND ($ccsp[$i]['occurrences'][$k]['rule']['until'] > $hoje) AND (isset($ccsp[$i]['occurrences'][$k]['rule']['day'][$semana])))
+		){
+			
+			echo $ccsp[$i]['name'];	
+				
 		}
 	}
 }
-
 //echo $ccsp[0]['occurrences'][0]['rule']['startsOn']; //Exemplo de acesso a informação
 
 echo "<pre>";
