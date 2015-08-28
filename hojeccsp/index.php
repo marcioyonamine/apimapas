@@ -58,7 +58,6 @@ $semana = date('w');
 	$timestamp = strtotime($hoje); 
 	$dia = date('d/m/Y',$timestamp);
 	$hora = date('H:i', $timestamp);
-//echo "Foram encontrados ".sizeof($evento)." resultados.<br><br>";
 
 $ccsp = converterObjParaArray($evento);
 ?>
@@ -91,7 +90,7 @@ for($i = 0; $i < sizeof($evento); $i++){
 	for($k = 0; $k < count($ccsp[$i]['occurrences']); $k++){
 		if(
 		($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] == $hoje) OR //o dia exato de hoje
-		(($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] < $hoje) AND ($ccsp[$i]['occurrences'][$k]['rule']['until'] > $hoje) AND (isset($ccsp[$i]['occurrences'][$k]['rule']['day'][$semana])))
+		(($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] < $hoje) AND ($ccsp[$i]['occurrences'][$k]['rule']['until'] > $hoje) AND (isset($ccsp[$i]['occurrences'][$k]['rule']['day'][$semana]))) //o dia de temporada e se o dia da semana bate
 		){
 			
 				echo "

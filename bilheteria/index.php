@@ -58,9 +58,9 @@ $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
 
 
 $data = array(
-	'@select' => 'id, name, terms, occurrences', 
+	'@select' => 'id, name, terms, occurrences', // aqui eu peço o id, nome, termos (linguagem) e ocorrências
 	"@order" => "id ASC", 
-	"owner" => "EQ(@Agent:608)"
+	"owner" => "EQ(@Agent:608)" // do agente 608 (CCSP)
 	);
 
 $get_addr = $url.'?'.http_build_query($data);
@@ -77,7 +77,7 @@ $semana = date('w');
 	$hora = date('H:i', $timestamp);
 //echo "Foram encontrados ".sizeof($evento)." resultados.<br><br>";
 
-$ccsp = converterObjParaArray($evento);
+$ccsp = converterObjParaArray($evento); // aqui converto o objeto json em uma array
 $j = 0;
 for($i = 0; $i < sizeof($evento); $i++){
 	for($k = 0; $k < count($ccsp[$i]['occurrences']); $k++){
@@ -86,7 +86,7 @@ for($i = 0; $i < sizeof($evento); $i++){
 		(($ccsp[$i]['occurrences'][$k]['rule']['startsOn'] < $hoje) AND ($ccsp[$i]['occurrences'][$k]['rule']['until'] > $hoje) AND (isset($ccsp[$i]['occurrences'][$k]['rule']['day'][$semana])))
 		){
 			
-// eventos de hoje
+// eventos de hoje  - aqui gero uma array mais organizada
 $evhoj[$j]['nome'] = $ccsp[$i]['name'];
 $evhoj[$j]['valor'] = $ccsp[$i]['occurrences'][$k]['rule']['price'];
 $evhoj[$j]['horario'] = $ccsp[$i]['occurrences'][$k]['rule']['startsAt'];
