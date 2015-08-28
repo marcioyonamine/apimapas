@@ -54,6 +54,14 @@ function converterObjParaArray($data) { //função que transforma objeto vindo d
     }
 }
 
+function ordenaPontos( $a, $b ) {  
+     if ( $a[$j]['horario'] == $b[$j]['horario'] ) {  
+         return 0;  
+     }  
+     return ( $a[$j]['horario'] < $b[$j]['horario'] ) ? -1 : 1;  
+ }  
+ 
+
 $url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
 
 
@@ -78,6 +86,7 @@ $semana = date('w');
 //echo "Foram encontrados ".sizeof($evento)." resultados.<br><br>";
 
 $ccsp = converterObjParaArray($evento); // aqui converto o objeto json em uma array
+
 $j = 0;
 for($i = 0; $i < sizeof($evento); $i++){
 	for($k = 0; $k < count($ccsp[$i]['occurrences']); $k++){

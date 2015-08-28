@@ -3,6 +3,8 @@
 Estudos para o uso da API dos mapas culturais com base no SPCultura
 Documentação da API: https://github.com/hacklabr/mapasculturais/blob/master/doc/api.md
 */
+
+
 function diasemana($data) {
 	$ano =  substr("$data", 0, 4);
 	$mes =  substr("$data", 5, -3);

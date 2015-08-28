@@ -4,7 +4,9 @@
 Estudos para o uso da API dos mapas culturais com base no SPCultura
 Documentação da API: https://github.com/hacklabr/mapasculturais/blob/master/doc/api.md
 */
-
+/* 
+  */
+  
 function converterObjParaArray($data) { //função que transforma objeto vindo do json em array
 
     if (is_object($data)) {
