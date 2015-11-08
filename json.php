@@ -21,10 +21,12 @@ function converterObjParaArray($data) { //função que transforma objeto vindo d
     }
 }
 
-$url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
+$url = "http://spcultura.prefeitura.sp.gov.br/api/event/findByLocation";
 
 
 $data = array(
+   	"@from" => "2015-08-28",
+	"@to" => "2015-08-31",
 	"@select" => "id, name, longDescription, terms, project, occurrences", 
 	"@order" => "id ASC", 
 	"owner" => "EQ(@Agent:608)"

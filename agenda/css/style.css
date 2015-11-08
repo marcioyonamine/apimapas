@@ -1,0 +1,36 @@
+.calendar-container{
+	font-family: Arial,sans-serif;
+	font-size: small;
+}
+
+.container{
+	width: 90%;
+	margin: auto;
+}
+.lista-eventos{
+	list-style: none;
+	padding: 15px 0px;
+}
+
+.lista-eventos li{
+	border: 1px solid silver;
+	padding: 5px;
+	list-style-type:none;
+	cursor:pointer;
+}
+
+.float-right{
+	float:right;
+	margin-right:4px;
+	margin-left: 4px;
+}
+
+.date-label{
+	font-weight: bold;
+	background-color: #CFE1E3;
+}
+
+#loader{
+    position: relative;
+    top: -2px;
+}

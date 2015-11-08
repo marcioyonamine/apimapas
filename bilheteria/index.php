@@ -62,10 +62,12 @@ function ordenaPontos( $a, $b ) {
  }  
  
 
-$url = "http://spcultura.prefeitura.sp.gov.br/api/event/find";
+$url = "http://spcultura.prefeitura.sp.gov.br/api/event/findByLocation";
 
 
 $data = array(
+   	"@from" => "2015-09-01",
+	"@to" => "2015-09-30",
 	'@select' => 'id, name, terms, occurrences', // aqui eu peço o id, nome, termos (linguagem) e ocorrências
 	"@order" => "id ASC", 
 	"owner" => "EQ(@Agent:608)" // do agente 608 (CCSP)
