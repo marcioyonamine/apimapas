@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Verdana, Geneva, sans-serif;
+	color:#666;
+	}
+
+#hoje{
+	margin: 2px 2px 2px 2px;
+	font-size:36px;
+	}
+
+#linguagem{
+	font-size:36px;
+	padding: 5px 5px 5px 5px;
+	background:#F00;
+	font:Verdana, Geneva, sans-serif;
+	color:#FFF;
+	margin-bottom:10px;
+	}
+
+#evento{
+	padding: 2px 2px 2px 2px;
+	}	
+
+#servico{
+
+	padding:2px 2px 2px 2px;
+	}	
+
+#conteudo{
+	padding: 2px 2px 2px 2px;
+}
+
+#ccsp{
+	text-align:center;
+	margin: 2px 2px 2px 2px;
+	font-size:36px;
+	
+	}
+
+#titulo{
+	font-size: 36px;
+	}		
