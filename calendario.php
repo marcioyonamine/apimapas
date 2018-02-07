@@ -131,7 +131,7 @@ if(isset($_GET['pag'])){
 
 
 
-$numero = cal_days_in_month(CAL_GREGORIAN, 10, 2017); // 31
+$numero = cal_days_in_month(CAL_GREGORIAN, 10, 2018); // 31
 $url_mapas = "http://culturaz.santoandre.sp.gov.br/api/";
 $url = $url_mapas."event/findByLocation";
 

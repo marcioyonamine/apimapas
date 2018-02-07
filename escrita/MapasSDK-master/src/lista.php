@@ -1,5 +1,14 @@
 <?php
-require dirname(__DIR__) . '/vendor/autoload.php';
+//require dirname(__DIR__) . '/vendor/autoload.php';
+
+require 'MapasSDK/MapasSDK.php';
+require 'MapasSDK/Exceptions/BadRequest.php';
+require 'MapasSDK/Exceptions/Exception.php';
+require 'MapasSDK/Exceptions/Forbidden.php';
+require 'MapasSDK/Exceptions/NotFound.php';
+require 'MapasSDK/Exceptions/Unauthorized.php';
+require 'MapasSDK/Exceptions/UnexpectedError.php';
+require 'MapasSDK/Exceptions/ValidationError.php';
 
 $mapas = new MapasSDK\MapasSDK(
     'http://culturaz.santoandre.sp.gov.br/',

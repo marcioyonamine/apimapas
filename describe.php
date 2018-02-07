@@ -81,6 +81,18 @@ echo "<pre>";
 print_r($ccsp);
 echo "</pre>";
 
+echo "<h1>Entidade Selo</h1>";
+$url = "http://culturaz.santoandre.sp.gov.br/api/seal/describe";
+$get_addr = $url;
+$ch = curl_init($get_addr);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$page = curl_exec($ch);
+$evento = json_decode($page);
+$ccsp = converterObjParaArray($evento);
+echo "<pre>";
+print_r($ccsp);
+echo "</pre>";
+
 echo "<h1>Entidade Inscricao</h1>";
 $url = "http://culturaz.santoandre.sp.gov.br/api/registration/describe";
 $get_addr = $url;
@@ -93,5 +105,16 @@ echo "<pre>";
 print_r($ccsp);
 echo "</pre>";
 
+echo "<h1>Entidade Inscricao</h1>";
+$url = "http://culturaz.santoandre.sp.gov.br/api/event/createSealRelation/describe";
+$get_addr = $url;
+$ch = curl_init($get_addr);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$page = curl_exec($ch);
+$evento = json_decode($page);
+$ccsp = converterObjParaArray($evento);
+echo "<pre>";
+print_r($ccsp);
+echo "</pre>";
 
 ?>

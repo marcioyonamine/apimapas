@@ -103,15 +103,19 @@ function pegaJsonMapas($url){
 <?php
 	$mailing = "";
 	$ar = array();
+	$ins = 0;
+	$ras = 0;
 for($i = 0; $i < count($x); $i++){
 	$owner = $x[$i]['owner']['id'];
 	$status = $x[$i]['status'];
 	//echo $owner." / ".$status."<br />";
 	$y = mapas($owner);
 	if($status == 0){
-		$s = "Rascunho";	
+		$s = "Rascunho";
+		$ras++;	
 	}else{
 		$s = "Enviado";
+		$ins++;
 	}
 	
 	//se for enviado ou não
@@ -173,7 +177,7 @@ for($i = 0; $i < count($x); $i++){
 	<?php
 	
 	if(!in_array($y[0]['emailPublico'],$ar) AND $y[0]['emailPublico'] != ""){
-		$mailing .= $y[0]['emailPublico'].",";
+		$mailing .= $y[0]['emailPublico'].";";
 		array_push($ar,$y[0]['emailPublico']);
 	}
 	$final = substr($mailing,0,-1);
@@ -190,6 +194,8 @@ for($i = 0; $i < count($x); $i++){
 ?>
 </table>
 <br /><br />
+<p> Total: <?php echo $ras + $ins ?> / Inscritos: <?php echo $ins ?> / Rascunhos: <?php echo $ras ?> </p>
+<br /><br /> 
  <textarea class="form-control" rows="10"><?php echo $mailing; ?></textarea>
 	   <?php } ?>
 
